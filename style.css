@@ -6,19 +6,15 @@
 
 body{
     background-color: #DDFFDD;
-    height: 100vh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-div{
-    margin: 5vh;
+    text-align: center;
 }
 
 #tela{
     background-color: black;
+}
+div{
+    margin: 5vh;
 }
 
 
