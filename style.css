@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body{
+    background-color: #DDFFDD;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+div{
+    margin: 5vh;
+}
+
+#tela{
+    background-color: black;
+}
+
+
+button{
+    background-color: #9999EE;
+    color: white;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #BBBBFF;
+}
+button:disabled{
+    background-color: #DDDDDD;
+    cursor: not-allowed;
+}
