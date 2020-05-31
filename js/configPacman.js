@@ -22,3 +22,10 @@ Direcao.cima = 0;
 Direcao.baixo = 1;
 Direcao.esquerda = 2;
 Direcao.direita = 3;
+
+var Teclas = function(){
+}
+Teclas.cima = 38;
+Teclas.baixo = 40;
+Teclas.esquerda = 37;
+Teclas.direita = 39;

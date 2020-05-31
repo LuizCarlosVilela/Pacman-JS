@@ -13,6 +13,84 @@ var px = -1, py = -1;
 
 var ghosts = new Array();
 
+var setaCima = setaBaixo = setaEsquerda= setaDireita = false;
+
+document.addEventListener("keydown", e =>{
+    if(e.keyCode === Teclas.direita){
+        setaDireita = true;
+    }
+    if(e.keyCode === Teclas.esquerda){
+        setaEsquerda = true;
+    }
+    if(e.keyCode === Teclas.cima){
+        setaCima = true;
+    }
+    if(e.keyCode === Teclas.baixo){
+        setaBaixo = true;
+    }
+
+    moverGhost();
+    moverPacman();
+    desenharTudo();
+});
+
+function moverGhost(){
+    for (i = 0; i < ghosts.length; i++){
+        ghosts[i].mover();
+    }
+}
+
+function moverPacman(){
+    if(setaDireita){
+        setaDireita = false;
+
+        if(px + 1 < nx){
+            if(Cenario.mapa[py][px + 1] != Cenario.parede){
+                px++;
+            }
+        }
+        else if (Cenario.mapa[py][0] != Cenario.parede){
+            px = 0;
+        }
+    }
+
+    if(setaEsquerda){
+        setaEsquerda = false;
+
+        if(px -1 >= 0){
+            if(Cenario.mapa[py][px - 1] != Cenario.parede){
+                px--;
+            }
+        }
+        else if (Cenario.mapa[py][nx - 1] != Cenario.parede){
+            px = nx -1;
+        }
+    }
+    if(setaCima){
+        setaCima = false;
+        
+        if(py - 1 >= 0){
+            if(Cenario.mapa[py - 1][px] != Cenario.parede){
+                py--;
+            }
+        }
+        else if (Cenario.mapa[ny -1][px] != Cenario.parede){
+            py = ny-1;
+        }
+    }
+    if(setaBaixo){
+        setaBaixo = false;
+        if( py+1 < ny){
+            if(Cenario.mapa[py + 1][px] != Cenario.parede){
+                py++;
+            }
+        }
+        else if (Cenario.mapa[0][px] != Cenario.parede){
+            py = 0;
+        }
+    }
+}
+
 function novoJogo(){
     Cenario.mapa = new Array();
 
