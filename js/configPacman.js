@@ -13,6 +13,8 @@ Cenario.mapa = null;
 
 var largura = 30;
 
+var intervalo = 200;
+
 //direcoes
 var Direcao = function(){
 }

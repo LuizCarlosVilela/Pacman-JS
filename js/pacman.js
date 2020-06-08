@@ -15,6 +15,9 @@ var ghosts = new Array();
 
 var setaCima = setaBaixo = setaEsquerda= setaDireita = false;
 
+var relogio = null;
+var relogioGhosts = null;
+
 document.addEventListener("keydown", e =>{
     if(e.keyCode === Teclas.direita){
         setaDireita = true;
@@ -29,9 +32,6 @@ document.addEventListener("keydown", e =>{
         setaBaixo = true;
     }
 
-    moverGhost();
-    moverPacman();
-    desenharTudo();
 });
 
 function moverGhost(){
@@ -89,6 +89,33 @@ function moverPacman(){
             py = 0;
         }
     }
+}
+
+function pausar(){
+    if (relogio != null){
+        clearInterval(relogio);
+        clearInterval(relogioGhosts);
+
+        relogio = null;
+        relogioGhosts = null;
+
+        btPausa.innerHTML = "Continuar";
+    } else {
+        relogio = setInterval('atualizaPacman()', intervalo);
+        relogioGhosts = setInterval('atualizaGhosts()', Math.round(intervalo * 1.2));
+
+        btPausa.innerHTML = "Pausar";
+    }
+}
+
+function atualizaGhosts(){
+    moverGhost();
+    desenharTudo();
+}
+
+function atualizaPacman(){
+    moverPacman();
+    desenharTudo();
 }
 
 function novoJogo(){
